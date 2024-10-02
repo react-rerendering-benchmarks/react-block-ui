@@ -1,13 +1,10 @@
+import { memo } from "react";
 import React from 'react';
-
-function Loader() {
-  return (
-    <div className="loading-indicator">
+const Loader = memo(function Loader() {
+  return <div className="loading-indicator">
       <span className="loading-bullet">&bull;</span>{' '}
       <span className="loading-bullet">&bull;</span>{' '}
       <span className="loading-bullet">&bull;</span>
-    </div>
-  );
-}
-
+    </div>;
+});
 export default Loader;

@@ -1,15 +1,13 @@
+import { memo } from "react";
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 import React from 'react';
 import { PrismCode } from 'react-prism';
 import Helmet from 'react-helmet';
-
 import ReduxBlockUiExample from '../examples/ReduxBlockUi';
 const ReduxBlockUiExampleSource = require('!!raw!../examples/ReduxBlockUi.js');
 const ReduxMiddlewareSource = require('!!raw!../examples/ReduxStore');
-
-export default function ReduxBlockUi() {
-  return (
-    <div>
+export default memo(function ReduxBlockUi() {
+  return <div>
       <Helmet title="ReduxBlockUi" />
       <h3>ReduxBlockUi</h3>
       <p>
@@ -41,7 +39,7 @@ export default function ReduxBlockUi() {
       </p>
       <pre>
         <PrismCode className="language-jsx">
-{`ReduxBlockUi.propTypes = {
+        {`ReduxBlockUi.propTypes = {
   blocking: PropTypes.bool,
   block: PropTypes.oneOfType([
     PropTypes.instanceOf(RegExp),
@@ -70,6 +68,5 @@ export default function ReduxBlockUi() {
           {ReduxMiddlewareSource}
         </PrismCode>
       </pre>
-    </div>
-  );
-}
+    </div>;
+});

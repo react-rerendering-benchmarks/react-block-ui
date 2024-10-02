@@ -1,8 +1,8 @@
+import { memo } from "react";
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 import React from 'react';
 import { PrismCode } from 'react-prism';
 import Helmet from 'react-helmet';
-
 import BlockUiExample from '../examples/BlockUi';
 import BlockUiCustomLoaderExample from '../examples/BlockUiCustomLoader';
 import BlockUiCustomMessageExample from '../examples/BlockUiCustomMessage';
@@ -15,10 +15,8 @@ const BlockUiCustomMessageExampleSource = require('!!raw!../examples/BlockUiCust
 const BlockUiNoChildrenExampleSource = require('!!raw!../examples/BlockUiNoChildren.js');
 const BlockUiKeepInViewExampleSource = require('!!raw!../examples/BlockUiKeepInView.js');
 const BlockUiFocusExampleSource = require('!!raw!../examples/BlockUiFocus.js');
-
-export default function BlockUiPage() {
-  return (
-    <div>
+export default memo(function BlockUiPage() {
+  return <div>
       <Helmet title="BlockUi" />
       <h3>BlockUi</h3>
       <p>
@@ -43,7 +41,7 @@ export default function BlockUiPage() {
       </p>
       <pre>
         <PrismCode className="language-jsx">
-{`BlockUi.propTypes = {
+        {`BlockUi.propTypes = {
   blocking: PropTypes.bool,
   keepInView: PropTypes.bool,
   children: PropTypes.node,
@@ -143,6 +141,5 @@ export default function BlockUiPage() {
           {BlockUiKeepInViewExampleSource}
         </PrismCode>
       </pre>
-    </div>
-  );
-}
+    </div>;
+});
